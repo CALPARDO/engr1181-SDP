@@ -55,9 +55,31 @@ function game(scene_bs_f)
     %disp_brd(1, 1:2) = a_hor_2;
     %drawScene(scene_bs_f, disp_bs);
     
-    function rand_ship(scene_bs_f)
+    function rand_ship_coor = rand_ship()
+        %2-cell ver or hor (0=hor, 1=ver)
+        dir_2c = randi(2,1,1)-1;
         %2-cell coordinate
-        randi(10,1,2);
+        coor_2c = randi(10,1,2);
+        if dir_2c == 0
+            coor_2c(2,1) = coor_2c(1,1);
+            coor_2c(2,2) = coor_2c(1,2) + 1;
+        elseif dir_2c == 1
+            coor_2c(2,2) = coor_2c(1,2);
+            coor_2c(2,1) = coor_2c(1,1) + 1;
+        end
+        rand_ship_coor(1:2,1:2) = coor_2c;
+
+        %first 3-cell ver or hor (0=hor, 1=ver)
+        dir_3c_1 = randi(2,1,1)-1;
+        %first 3-cell coordinate
+        coor_3c_1 = randi(10,1,2);
+        if dir_3c == 0
+            coor_3c(2,1) = coor_3c(1,1);
+            coor_3c(2,2) = coor_3c(1,2) + 1:2;
+        elseif dir_3c == 1
+            coor_3c(2,2) = coor_3c(1,2);
+            coor_3c(2,1) = coor_3c(1,1) + 1;
+        end
     end
 
 end
