@@ -1,6 +1,4 @@
 function disp_test(coor_2c, coor_3c_1, coor_3c_2, coor_4c, coor_5c, dir_2c, dir_3c_1, dir_3c_2, dir_4c, dir_5c, scene_bs)   
-
-    s_black = 1; % Blank sprite
     s_water = 2; % Water sprite
     
     s_hor_1 = 3; % 1st part of horizontal ship
@@ -10,9 +8,6 @@ function disp_test(coor_2c, coor_3c_1, coor_3c_2, coor_4c, coor_5c, dir_2c, dir_
     s_ver_1 = 6; % 1st part of vertical ship
     s_ver_2 = 7; % 2nd part of vertical ship
     s_ver_3 = 8; % 3rd part of vertical ship
-    
-    scl_hit = 9;   % Hit sprite
-    s_miss = 10; % Miss sprite
 
     disp_brd = s_water * ones(10,10);
     disp_bs = disp_brd;
