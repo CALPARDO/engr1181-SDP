@@ -11,7 +11,7 @@ function [coor_2c, coor_3c_1, coor_3c_2, coor_4c, coor_5c, dir_2c, dir_3c_1, dir
                 coor_2c(2,2) = coor_2c(1,2);
                 coor_2c(2,1) = coor_2c(1,1) + 1;
             end
-            if coor_2c < 10
+            if coor_2c <= 10
                 break;
             end
         end
@@ -32,10 +32,11 @@ function [coor_2c, coor_3c_1, coor_3c_2, coor_4c, coor_5c, dir_2c, dir_3c_1, dir
                 coor_3c_1(2,1) = coor_3c_1(1,1) + 1;
                 coor_3c_1(3,1) = coor_3c_1(1,1) + 2;
             end
-            ism = ismember(rand_ship_coor, coor_3c_1, 'rows');
-            if (coor_3c_1 < 10) && (any(ism=1))
-                rand_ship_coor(3:5,:) = coor_3c_1;
-                break;                
+            if all(ismember(rand_ship_coor, coor_3c_1, 'rows') == 0)
+                if coor_3c_1 <= 10
+                    rand_ship_coor(3:5,:) = coor_3c_1;
+                    break;
+                end
             end
         end
         pause(randi(10,1,1)*0.001);
@@ -54,9 +55,11 @@ function [coor_2c, coor_3c_1, coor_3c_2, coor_4c, coor_5c, dir_2c, dir_3c_1, dir
                 coor_3c_2(2,1) = coor_3c_2(1,1) + 1;
                 coor_3c_2(3,1) = coor_3c_2(1,1) + 2;
             end
-            if (coor_3c_2 < 10) && all(ismember(rand_ship_coor, coor_3c_2, 'rows') == 0)
-                rand_ship_coor(6:8,:) = coor_3c_2;
-                break;              
+            if all(ismember(rand_ship_coor, coor_3c_2, 'rows') == 0)
+                if coor_3c_2 <= 10
+                    rand_ship_coor(6:8,:) = coor_3c_2;
+                    break;  
+                end
             end
         end
         pause(randi(10,1,1)*0.001);
@@ -77,9 +80,11 @@ function [coor_2c, coor_3c_1, coor_3c_2, coor_4c, coor_5c, dir_2c, dir_3c_1, dir
                 coor_4c(3,1) = coor_4c(1,1) + 2;
                 coor_4c(4,1) = coor_4c(1,1) + 3;
             end
-            if (coor_4c < 10) && all(ismember(rand_ship_coor, coor_4c, 'rows') == 0)
-                rand_ship_coor(9:12,:) = coor_4c;
-                break;             
+            if all(ismember(rand_ship_coor, coor_4c, 'rows') == 0)
+                if coor_4c <= 10
+                    rand_ship_coor(9:12,:) = coor_4c;
+                    break;
+                end
             end
         end
         pause(randi(10,1,1)*0.001);
@@ -102,9 +107,11 @@ function [coor_2c, coor_3c_1, coor_3c_2, coor_4c, coor_5c, dir_2c, dir_3c_1, dir
                 coor_5c(4,1) = coor_5c(1,1) + 3;
                 coor_5c(5,1) = coor_5c(1,1) + 4;
             end
-            if (coor_5c > 10) && all(ismember(rand_ship_coor, coor_5c, 'rows') == 0)
-                rand_ship_coor(13:17,:) = coor_5c;
-                break;               
+            if all(ismember(rand_ship_coor, coor_5c, 'rows') == 0)
+                if coor_5c <= 10
+                    rand_ship_coor(13:17,:) = coor_5c;
+                    break;
+                end
             end
         end
     end
