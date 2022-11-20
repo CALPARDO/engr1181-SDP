@@ -1,3 +1,4 @@
+function [c] = ComputerTurn
 battleship_scene = simpleGameEngine('Battleship.png',84,84);
 
 %variables for sprites
@@ -84,4 +85,5 @@ while s <= 16   %while the number of cells containing a point with a red dot is 
     drawScene(battleship_scene,board_display)   %new board is displayed with the updated marker
     end
     break
+end
 end
