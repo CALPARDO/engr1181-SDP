@@ -31,9 +31,9 @@ drawScene(battleship_scene,NewBoard)
 
 boardArray = reshape(NewBoard.',1,[]);
 s = 0;  %variable s = 16; the number of sprites containing a part of the ship                    
-C = 0;
+A = 0;
 c = 0; 
-if [c] == 0 
+if [c] == 9 
     while NewBoard(c) == 9             %if the last sprite was a hit, the the computure will choose a number within 10 of the number hit
     l = c %for testing (c is the value from the last set of numbers so l is for this set)
     if NewBoard(c) == 3         %if hit on the left side of the ship
@@ -42,11 +42,11 @@ if [c] == 0
         if NewBoard(c) == 4
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         elseif NewBoard(c) == 5
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         end
     elseif NewBoard(c) == 4     %if hit on a horizontal piece 
         [c] = NewBoard + 10;       %computer guesses the cell to the right
@@ -54,11 +54,11 @@ if [c] == 0
         if NewBoard(c) == 4
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         elseif NewBoard(c) == 5
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         end
     elseif NewBoard(c) == 5     %if hit is on the right side of the ship
         [c] = NewBoard - 10;       %computer guesses the cell to the left
@@ -66,11 +66,11 @@ if [c] == 0
         if NewBoard(c) == 3
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         elseif NewBoard(c) == 4
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         end
     elseif NewBoard(c) == 6     %if hit is on the top
         [c] = bboard_display(c) - 1;     %computer guesses cell below
@@ -78,11 +78,11 @@ if [c] == 0
         if NewBoard(c) == 7
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         elseif NewBoard(c) == 8
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         end
     elseif NewBoard(c) == 7     %if hit is on the vertical piece
         [c] = NewBoard(c) - 1;     %computer guesses the cell below
@@ -90,11 +90,11 @@ if [c] == 0
         if NewBoard(c) == 7
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         elseif NewBoard(c) == 8
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         end
     elseif NewBoard(c) == 8     %if the hit is on the bottom of the ship
         [c] = NewBoard(c) + 1;     % computer guesses one cell above
@@ -102,11 +102,11 @@ if [c] == 0
         if NewBoard(c) == 7
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         elseif NewBoard(c) == 8
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         end
     %else battleship_scene(l) = 4; %if hit is still on horizontal piece
         %[c] = randi([111,200],1,1);   %guesses two to the left
@@ -126,31 +126,31 @@ end
     if NewBoard(c) == 3
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
     elseif NewBoard(c) == 4
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
     elseif NewBoard(c) == 5
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1; 
+        A = A + 1; 
     elseif NewBoard(c) == 6
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
     elseif NewBoard(c) == 7
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
     elseif NewBoard(c) == 8
         NewBoard(c) = 9;
         s = s + 1;
-        C = C + 1;
+        A = A + 1;
         %If the board is displaying a water sprite, then when it is hit, a white dot will be displayed in that spot.
     elseif NewBoard(c) == 2
         NewBoard(c) = 10;
-        C = C + 1;
+        A = A + 1;
     elseif NewBoard(c) == 10
         [c] = randi([111, 200],1,1);
     elseif NewBoard(c) == 1
