@@ -27,7 +27,7 @@ while board_display(c) == 9             %if the last sprite was a hit, the the c
         s = s + 1;
         C = C + 1;
         end
-    elseif bboard_display(c)) == 5     %if hit is on the right side of the ship
+    elseif board_display(c)) == 5     %if hit is on the right side of the ship
         [c] = board_display - 10;       %computer guesses the cell to the left
         %will either be 3 or 4
         if board_display(c) == 3
