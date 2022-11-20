@@ -33,7 +33,7 @@ boardArray = reshape(NewBoard.',1,[]);
 s = 0;  %variable s = 16; the number of sprites containing a part of the ship                    
 C = 0;
 c = 0; 
-if [c] == 9 
+if [c] == 0 
     while NewBoard(c) == 9             %if the last sprite was a hit, the the computure will choose a number within 10 of the number hit
     l = c %for testing (c is the value from the last set of numbers so l is for this set)
     if NewBoard(c) == 3         %if hit on the left side of the ship
