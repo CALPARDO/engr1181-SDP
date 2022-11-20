@@ -1,3 +1,4 @@
+function [c] = Computerhit
 battleship_scene = simpleGameEngine('Battleship.png',84,84);
 
 %variables for sprites
@@ -107,5 +108,6 @@ while board_display(c) == 9             %%if the last sprite was a hit, the the 
          [c] = randi([111, 200],1,1)   %goes back to original while loop
     end
     drawScene(battleship_scene,board_display)
+end
 end
 
