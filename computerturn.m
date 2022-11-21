@@ -34,9 +34,9 @@ s = 0;  %variable s = 16; the number of sprites containing a part of the ship
 A = 0;
 c = 0; 
 if [c] == 9 
-    while NewBoard(c) == 9             %if the last sprite was a hit, the the computure will choose a number within 10 of the number hit
-    l = c %for testing (c is the value from the last set of numbers so l is for this set)
-    if NewBoard(c) == 3         %if hit on the left side of the ship
+    while NewBoard(c) == 9             %%if the last sprite was a hit, the the computure will choose a number within 10 of the number hit
+    l = c
+    if PlayersShip(l) == 3         %if hit on the left side of the ship
         [c] = NewBoard(c) + 10;       %computer guesses the cell to the right side
         %will either be 4 or 5
         if NewBoard(c) == 4
@@ -122,7 +122,7 @@ end
     %if the board display already has a dot, another point will be guessed
     %If the board display had a ship, then the board will display a red dot
     %This will add 1 to the variable s, taking away from the total number of sprites with ships
-    [c] = randi([111,200],1,1);
+    [c] = randi([1,100],1,1);
     if NewBoard(c) == 3
         NewBoard(c) = 9;
         s = s + 1;
