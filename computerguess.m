@@ -28,6 +28,15 @@ battleship_display = water_s * ones(10,21);
 battleship_display(:,11) = blank_s;
 drawScene(battleship_scene,battleship_display)
 
+%display ship images on the Game Board example
+battleship_display(10, 16:20) = horizontalship5;
+battleship_display(1:4, 13) = verticalship4;
+battleship_display(5:6, 21) = verticalship2;
+battleship_display(9, 13:14) = horizontalship2;
+battleship_display(1:3, 19) = verticalship3;
+drawScene(battleship_scene,battleship_display)
+
+
 %Computer Guessing where ships are
 %column = randi[11 21]
 %row = randi[1 10] (change for actual game)
