@@ -216,27 +216,91 @@ if s <= 16
                                 else
                                     break
                                 end
-%WHERE LEFT OFF 
+                            else
+                                break
+                            end
+                        else
+                            break
+                        end
+                    else
+                        break
+                    end
                 elseif rem(A,2) == 0 && board_display(c) == miss_s %UP third guess is a miss, one up
-                 
-                     
-                      
-                            if rem(A,2) == 0 && board_display(c) == hit_s %UP sixth guess is a hit, one up, definitly sunk get out of loop
+                    [c] = c - 9;
+                    A = A + 1;
+                    %display function
+                    if rem(A,2) == 0 && board_display(c) == hit_s %UP fourth guess is a hit
+                        [c] = c - 1;
+                        A = A + 1;
+                        %display function
+                        if rem(A,2) == 0 && board_display(c) == hit_s %UP fifth guess is a hit
+                            [c] = c - 1;
+                            A = A + 1;
+                            %display function
+                            if rem(A,2) == 0 && board_display(c) == hit_s %UP sixth guess up is a hit, 5 IS SUNK
                                 [c] = c - 1;
                                 A = A + 1;
                                 %display function
                                 break
+                            else
+                                break
                             end
-                            if rem(A,2) == 0 && board_display(c) == miss_s %DOWN seventh guess is a miss, one down
-                                  [c] = c + 1;
-                                  A = A + 1;
-                                  %display function
-
-                    
+                            
+                        elseif rem(A,2) == 0 && board_display(c) == miss_s %DOWN fifth guess up is a miss
+                            [c] = c - 4;
+                            A = A + 1;
+                            %display function
+                            if rem(A,2) == 0 && board_display(c) == hit %DOWN sixth guess down is a hit
+                                [c] = c - 1;
+                                A = A + 1;
+                                %display function
+                                if rem(A,2) == 0 && board_display(c) == hit %DOWN seventh guess down is a hit, HAS TO BE SUNK SHIP
+                                    [c] = c - 1;
+                                    A = A + 1;
+                                    %display function
+                                    break
+                                else
+                                    break
+                                end
+                            else
+                                break
+                            end
+                        end
+                    elseif rem(A,2) == 0 && board_display(c) == miss_s %DOWN fourth guess up is a miss
+                        [c] = c - 3;
+                        A = A + 1;
                         %display function
+                        if rem(A,2) == 0 && board_display(c) == hit_s %DOWN fifth guess down is a hit
+                            [c] = c - 1;
+                            A = A + 1;
+                            %disply function
+                            if rem(A,2) == 0 && board_display(c) == hit_s %DOWN sixth guess down is a hit
+                                [c] = c - 1;
+                                A = A + 1;
+                                %display function
+                                if rem(A,2) == 0 && board_display(c) == hit_s %DOWN seventh guess down is a hit, MUST BE A SUNK SHIP
+                                    [c] = c -1;
+                                    A = A + 1;
+                                    %display function 
+                                    break
+                                else
+                                    break
+                                end
+                            else
+                                break
+                            end
+                        else
+                            break
+                        end
+                    else
+                        break
                     end
+                else
+                    break
                 end
-            end        
+            else
+                break
+            end
 %MAIN ELSE STATEMENT 
         elseif rem(A,2) == 0 && board_display(c) == miss_s %LEFT if A is even and first guess is a miss, one to the left of the original is guessed
             [c] = c - 20; 
