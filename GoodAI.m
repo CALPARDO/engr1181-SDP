@@ -216,6 +216,7 @@ if s <= 16
                                 else
                                     break
                                 end
+%WHERE LEFT OFF 
                 elseif rem(A,2) == 0 && board_display(c) == miss_s %UP third guess is a miss, one up
                  
                      
