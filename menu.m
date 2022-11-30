@@ -9,14 +9,20 @@ function menu(scene_menu,scene_bs)
             sfx('hit');
             close all
             cpu(scene_bs);
-            fprintf('CPU\n');
+            %uiwait(msgbox('If you would like to play press 1. If you want to stop playing press 2.','Battleship'));
+            %ex = getKeyboardInput(scene_bs);
+            %if ex == 2; break; elseif ex == 1; end
+            close all
             return;
         elseif r >= 706 && r <= 865 && c >= 395 && c <= 556 && b == 1
             stop(sfx_player);
             sfx('hit');
             close all
             pvp(scene_bs);
-            fprintf('PVP\n');
+            %uiwait(msgbox('If you would like to play press 1. If you want to stop playing press 2.','Battleship'));
+            %ex = getKeyboardInput(scene_bs);
+            %if ex == 2; break; elseif ex == 1; end
+            close all
             return;
         else
             fprintf('bruh\n');

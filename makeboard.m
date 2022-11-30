@@ -44,7 +44,9 @@ blank_board(16, 12:13) = sidshp2;
 
 
 
-drawScene(BtlShipScn, blank_board)
+drawScene(BtlShipScn, blank_board);
+
+sfx_player = sfx('menu');
 
 shp5 = 1;
 shp4 = 1; 
@@ -83,6 +85,7 @@ k = getKeyboardInput(BtlShipScn);
                 l = 'f';
                 while l=='f'
                 uiwait(msgbox("To confirm this placement press c. To cancel, press x.","Battleship"));
+                if isplaying(sfx_player) == 0; play(sfx_player); end
                 l = getKeyboardInput(BtlShipScn);
                     if l == 'c'
                     shipsPlaced = shipsPlaced + 1;
@@ -101,12 +104,14 @@ k = getKeyboardInput(BtlShipScn);
                 end
                 else
                 uiwait(msgbox("this is an invalid placement","Battleship"))
+                if isplaying(sfx_player) == 0; play(sfx_player); end
                 blank_board(7:11, 16) = blnksprt;
                 drawScene(BtlShipScn, blank_board)
                 shp5 = 1;
                 end
    
             elseif r == 'h'
+            if isplaying(sfx_player) == 0; play(sfx_player); end
             blank_board(7:11, 16) = 1;
             blank_board(2,7:11) = sidshp5;
             drawScene(BtlShipScn,blank_board)
@@ -118,6 +123,7 @@ k = getKeyboardInput(BtlShipScn);
                 uiwait(msgbox("To confirm this placement press c. To cancel, press x.","Battleship"));
                 l = 'f';
                 while l == 'f'
+                if isplaying(sfx_player) == 0; play(sfx_player); end
                 l = getKeyboardInput(BtlShipScn);
                     if l == 'c'
                     shipsPlaced = shipsPlaced + 1;
@@ -135,11 +141,13 @@ k = getKeyboardInput(BtlShipScn);
                     end
                 end
                 elseif blank_board(a,b) == 1
+                if isplaying(sfx_player) == 0; play(sfx_player); end
                 blank_board(2,7:11) = 1;
                 drawScene(BtlShipScn, blank_board)
                 shp5 = 1;
                 else
                 uiwait(msgbox("this is an invalid placement","Battleship"))
+                if isplaying(sfx_player) == 0; play(sfx_player); end
                 blank_board(2, 7:11) = blnksprt;
                 shp5 = 1;
                 drawScene(BtlShipScn, blank_board);
@@ -148,6 +156,7 @@ k = getKeyboardInput(BtlShipScn);
     elseif k == '5' && shp5 == 0
     blank_board(7:11, 16) = 1;
     uiwait(msgbox("You already placed your 5 long ship. Choose a different ship","Battleship"));
+    if isplaying(sfx_player) == 0; play(sfx_player); end
     
     elseif k == '4' && shp4 == 1
       
@@ -155,6 +164,7 @@ k = getKeyboardInput(BtlShipScn);
         r = getKeyboardInput(BtlShipScn);
 
             if r == 'v'
+            if isplaying(sfx_player) == 0; play(sfx_player); end
             blank_board(2, 7:10) = blnksprt;
             blank_board(7:10,16) = vertshp4;
             drawScene(BtlShipScn, blank_board)
@@ -164,10 +174,12 @@ k = getKeyboardInput(BtlShipScn);
                 blank_board(7:10, 16) = 1;
                 drawScene(BtlShipScn,blank_board)
                 uiwait(msgbox("To confirm this placement press c. To cancel, press x.","Battleship"));
+                if isplaying(sfx_player) == 0; play(sfx_player); end
                 l = 'f';
                 while l == 'f'
                 l = getKeyboardInput(BtlShipScn);
                     if l == 'c'
+                    if isplaying(sfx_player) == 0; play(sfx_player); end
                     shipsPlaced = shipsPlaced + 1;
                     blank_board(7:10,16) = 1;
                     blank_board(18, 11:14) = 1;
@@ -178,6 +190,7 @@ k = getKeyboardInput(BtlShipScn);
                     blank_board(a:a+3, b) = wtrsprt;
                     shp4 = 1;
                     drawScene(BtlShipScn, blank_board)
+                    if isplaying(sfx_player) == 0; play(sfx_player); end
                     else 
                         l = 'f';
                     end
@@ -190,6 +203,7 @@ k = getKeyboardInput(BtlShipScn);
                 end
    
             elseif r == 'h'
+            if isplaying(sfx_player) == 0; play(sfx_player); end
             blank_board(7:10, 16) = 1;
             blank_board(2,7:10) = sidshp4;
             drawScene(BtlShipScn,blank_board)
@@ -218,6 +232,7 @@ k = getKeyboardInput(BtlShipScn);
                     end
                 end
                 elseif blank_board(a,b) == 1
+                if isplaying(sfx_player) == 0; play(sfx_player); end
                 blank_board(2,7:10) = 1;
                 drawScene(BtlShipScn, blank_board)
                 shp4 = 1;
@@ -238,6 +253,7 @@ k = getKeyboardInput(BtlShipScn);
         r = getKeyboardInput(BtlShipScn);
 
             if r == 'v'
+            if isplaying(sfx_player) == 0; play(sfx_player); end
             blank_board(2, 7:9) = blnksprt;
             blank_board(7:9,16) = vertshp3;
             drawScene(BtlShipScn, blank_board)
@@ -249,6 +265,7 @@ k = getKeyboardInput(BtlShipScn);
                 uiwait(msgbox("To confirm this placement press c. To cancel, press x.","Battleship"));
                 l = 'f';
                 while l == 'f'
+                if isplaying(sfx_player) == 0; play(sfx_player); end
                 l = getKeyboardInput(BtlShipScn);
                     if l == 'c' && shp3 == 2
                     shipsPlaced = shipsPlaced + 1;
@@ -272,6 +289,7 @@ k = getKeyboardInput(BtlShipScn);
                 end
                 else
                 uiwait(msgbox("this is an invalid placement","Battleship"))
+                if isplaying(sfx_player) == 0; play(sfx_player); end
                 blank_board(7:9, 16) = blnksprt;
                 drawScene(BtlShipScn, blank_board)
                 end
@@ -289,6 +307,7 @@ k = getKeyboardInput(BtlShipScn);
                 l = 'f';
                 while l == 'f'
                 l = getKeyboardInput(BtlShipScn);
+                if isplaying(sfx_player) == 0; play(sfx_player); end
                     if l == 'c' && shp3 == 2
                     shipsPlaced = shipsPlaced + 1;
                     blank_board(2,7:9) = 1;
@@ -310,6 +329,7 @@ k = getKeyboardInput(BtlShipScn);
                     end
                 end
                 elseif blank_board(a,b) == 1
+                if isplaying(sfx_player) == 0; play(sfx_player); end
                 blank_board(2,7:9) = 1;
                 drawScene(BtlShipScn, blank_board)
                 shp3 = 1;
@@ -320,6 +340,7 @@ k = getKeyboardInput(BtlShipScn);
                 end
             end
     elseif k == '3' && shp3 == 0
+    if isplaying(sfx_player) == 0; play(sfx_player); end
     blank_board(7:11, 16) = 1;
     uiwait(msgbox("You already placed your 3 long ship. Choose a different ship","Battleship"));
 
@@ -329,6 +350,7 @@ k = getKeyboardInput(BtlShipScn);
         r = getKeyboardInput(BtlShipScn);
 
             if r == 'v'
+            if isplaying(sfx_player) == 0; play(sfx_player); end
             blank_board(2, 7:8) = blnksprt;
             blank_board(7:8,16) = vertshp2;
             drawScene(BtlShipScn, blank_board)
